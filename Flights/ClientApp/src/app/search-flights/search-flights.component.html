@@ -1,1 +1,145 @@
-<p>search-flights works!</p>
+<h5 class="text-md-center m-5">Search for Flights</h5>
+
+<div class="m-5 d-grid gap-3">
+
+  <div class="row">
+
+    <div class="col">
+      <div class="form-floating">
+        <input placeholder="From" class="form-control" />
+        <label class="text-primary form-label">From</label>
+      </div>
+    </div>
+
+    <div class="col">
+      <div class="form-floating">
+        <input placeholder="Destination" class="form-control" />
+        <label class="text-primary form-label">Destination</label>
+      </div>
+    </div>
+
+  </div>
+
+  <div class="row">
+
+    <div class="col">
+      <div class="form-floating">
+        <input type="date" placeholder="From Date" class="form-control" />
+        <label class="text-primary form-label">From Date</label>
+      </div>
+    </div>
+
+    <div class="col">
+      <div class="form-floating">
+        <input type="date" placeholder="To Date" class="form-control" />
+        <label class="text-primary form-label">To Date</label>
+      </div>
+    </div>
+
+  </div>
+
+  <div class="row">
+
+    <div class="col text-end">
+      <label class="form-label text-primary mt-2">
+      Number of Passengers
+      </label>
+    </div>
+
+    <div class="col">
+      <div class="input-group">
+        <div class="input-group-text">For</div>
+        <input class="form-control" type="number" placeholder="1"/>
+        <div class="input-group-text">Passengers</div>
+
+        <button type="submit" class="btn-primary btn">
+          <i class="fas fa-search"></i>
+        </button>
+      </div>
+    </div>
+
+  </div>
+
+
+</div>
+
+<div *ngFor="let flight of searchResult">
+  <div class="card text-dark mt-5 text-center">
+    <div class="card-body" style="padding: 20px; background-color:#e5ecf26e">
+      <h6 class="card-title">{{flight.airline}}</h6>
+      <div class="card-title" style="color:#ff3939">
+        {{flight.remainingNumberOfSeats}} remaining seats
+      </div>
+
+      <div class="d-grid text-center g-2">
+        <div class="row">
+          <div class="col">
+
+            <div class="col m-3">
+              <i class="text-primary fas fa-plane-departure" style="font-size:20px;"></i>
+            </div>
+
+            <div class="col">
+              <i class="fa-solid fa-location-dot">
+                {{flight.departure.place}}
+              </i>
+            </div>
+
+            <div class="col m-2">
+              <i class="fa-regular"></i>
+              {{flight.departure.time | date }}
+            </div>
+
+            <div class="col">
+              <i class="fa-regular fa-clock"></i>
+              {{flight.departure.time | date:'shortTime' }}
+            </div>
+
+
+          </div>
+
+          <div class="col">
+            <div style="display:flex;">
+              <i class="fa-solid fa-circle" style="margin-top:50px; font-size:9px;"></i>
+              <hr style="display:block; width: 100%; margin-top:55px;" />
+              <i class="fas fa-plane" style="margin-top:48px;"></i>
+            </div>
+
+            <i class="fas fa-usd">{{flight.price}}</i>
+            <br />
+            <a class="btn btn-secondary btn-lg mt-2">
+              <i class="fas fa-ticket"></i>
+              Book
+            </a>
+          </div>
+
+          <div class="col">
+            <div class="col m-3">
+              <i class="text-primary fas fa-plane-arrival" style="font-size:20px;"></i>
+            </div>
+
+            <div class="col">
+              <i class="fa-solid fa-location-dot">
+                {{flight.arrival.place}}
+              </i>
+            </div>
+
+            <div class="col m-2">
+              <i class="fa-regular"></i>
+              {{flight.arrival.time | date }}
+            </div>
+
+            <div class="col">
+              <i class="fa-regular fa-clock"></i>
+              {{flight.arrival.time | date:'shortTime' }}
+            </div>
+          </div>
+
+
+        </div>
+      </div>
+
+    </div>
+
+  </div>
+</div>
