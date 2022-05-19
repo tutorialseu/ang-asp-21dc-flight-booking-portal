@@ -1,2 +1,85 @@
-<p>book-flight works!</p>
-<h2>Flight Id: {{flightId}}</h2>
+<h5 class="text-md-center m-5">Book Flight</h5>
+
+<div class="card-body text-center" style="padding: 20px; background-color:#e5ecf26e">
+  <h6 class="card-title ">{{flight.airline}}</h6>
+  <div class="card-title" style="color: #ff3939">{{flight.remainingNumberOfSeats}} remaining seats</div>
+  <div class="d-grid text-center g-2">
+    <div class="row">
+      <div class="col">
+        <div class="col m-3">
+
+          <i class="text-primary fas fa-plane-departure" style="font-size: 20px;"></i>
+        </div>
+        <div class="col">
+          <i class="fa-solid fa-location-dot">
+            {{flight.departure?.place}}
+          </i>
+
+        </div>
+        <div class="col m-2">
+          <i class="fa-regular"></i>
+          {{flight.departure?.time | date}}
+
+        </div>
+        <div class="col">
+
+          <i class="fa-regular fa-clock">
+            {{flight.departure?.time | date:'shortTime'}}
+          </i>
+        </div>
+      </div>
+
+      <div class="col">
+        <div style="display: flex;">
+          <i class="fa-solid  fa-circle" style="margin-top:51px; font-size: 9px;"></i>
+          <hr style="display:block;width: 100%;margin-top: 55px;">
+          <i class="fas fa-plane" style="margin-top: 48px;"></i>
+
+
+        </div>
+        <i class="fa fa-usd" aria-hidden="true">{{flight.price}}</i>
+        <br>
+
+      </div>
+      <div class="col">
+        <div class="col m-3">
+          <i class="text-primary fas fa-plane-arrival" style="font-size: 20px;"></i>
+
+        </div>
+        <div class="col">
+
+          <i class="fa-solid fa-location-dot">
+            {{flight.arrival?.place}}
+          </i>
+        </div>
+        <div class="col m-2 text-primary">
+          <i class="fa-regular "></i>
+          {{flight.arrival?.time | date}}
+
+        </div>
+        <div class="col">
+          <i class="fa-regular fa-clock">
+            {{flight.arrival?.time | date:'shortTime'}}
+          </i>
+
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="card-footer d-flex justify-content-center">
+
+  <label class="form-label mt-5" for="numberOfSeats">Number of Seats</label>
+  <div class="center input-group">
+
+    <input type="number" class="form-control" id="numberOfSeats" name="numberOfSeats"
+           placeholder="Number of Seats" />
+    <button type="submit" class="btn btn-primary">
+      <i class="fas fa-ticket"></i>
+      Book
+    </button>
+  </div>
+  <br>
+
+</div>
