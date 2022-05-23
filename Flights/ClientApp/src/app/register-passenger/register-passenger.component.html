@@ -1,38 +1,40 @@
-<div class="container d-grid gap-3" style="max-width: 700px;">
-
-  <div class="form-floating">
-    <input placeholder="Email" class="form-control" type="text" />
-    <label for="email">Email</label>
-
-  </div>
-  <div class="d-grid gap-3">
+<form [formGroup]="form">
+  <div class="container d-grid gap-3" style="max-width: 700px;">
 
     <div class="form-floating">
-
-      <input class="form-control" type="text" id="firstName" placeholder="First Name" />
-      <label class="form-label" for="firstName">First Name</label>
-
-    </div>
-
-    <div class="form-floating">
-
-      <input placeholder="Last Name" class="form-control" id="lastName" type="text" />
-      <label class="form-label" for="lastName">Last Name</label>
+      <input formControlName="email" placeholder="Email" class="form-control" type="text" />
+      <label for="email">Email</label>
 
     </div>
+    <div class="d-grid gap-3">
+
+      <div class="form-floating">
+
+        <input formControlName="firstName" class="form-control" type="text" id="firstName" placeholder="First Name" />
+        <label class="form-label" for="firstName">First Name</label>
+
+      </div>
+
+      <div class="form-floating">
+
+        <input formControlName="lastName" placeholder="Last Name" class="form-control" id="lastName" type="text" />
+        <label class="form-label" for="lastName">Last Name</label>
+
+      </div>
 
 
-    <div>
+      <div>
 
-      <input id="isFemale" class="form-check-input" [value]=true type="radio" />
-      <label class="ms-2 form-check-label" for="isFemale">Female</label>
+        <input formControlName="isFemale" id="isFemale" class="form-check-input" [value]=true type="radio" />
+        <label class="ms-2 form-check-label" for="isFemale">Female</label>
+      </div>
+      <div>
+        <input formControlName="isFemale" id="isFemale" class="form-check-input" [value]=false type="radio" />
+        <label class="ms-2 form-check-label" for="isFemale">Male</label>
+      </div>
     </div>
-    <div>
-      <input id="isFemale" class="form-check-input" [value]=false type="radio" />
-      <label class="ms-2 form-check-label" for="isFemale">Male</label>
+    <div class="d-flex justify-content-center center">
+      <button (click)="register()" type="submit" class="btn btn-primary">Login <i class="fa fa-sign-in" aria-hidden="true"></i></button>
     </div>
   </div>
-  <div class="d-flex justify-content-center center">
-    <button (click)="register()" type="submit" class="btn btn-primary">Login <i class="fa fa-sign-in" aria-hidden="true"></i></button>
-  </div>
-</div>
+</form>
