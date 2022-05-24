@@ -2,7 +2,7 @@
   <div class="container d-grid gap-3" style="max-width: 700px;">
 
     <div class="form-floating">
-      <input formControlName="email" placeholder="Email" class="form-control" type="text" />
+      <input (blur)="checkPassenger()" formControlName="email" placeholder="Email" class="form-control" type="text" />
       <label for="email">Email</label>
 
     </div>
