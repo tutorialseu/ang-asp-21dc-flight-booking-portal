@@ -1,0 +1,31 @@
+.header {
+  background-image: url('/assets/images/plane.jpg');
+  height: 337px;
+  background-size: cover;
+}
+
+.footer {
+  height: 200px;
+}
+
+  .footer a {
+    color: white;
+  }
+
+.header {
+  animation: fadeInAnimation ease 1s;
+  animation-iteration-count: 1;
+  /* animation-fill-mode: forwards; */
+}
+
+@keyframes fadeInAnimation {
+  0% {
+    opacity: 0;
+    margin-left: -30px;
+  }
+
+  100% {
+    margin-left: 0px;
+    opacity: 1;
+  }
+}
