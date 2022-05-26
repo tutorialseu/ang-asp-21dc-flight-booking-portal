@@ -5,6 +5,12 @@
       <input (blur)="checkPassenger()" formControlName="email" placeholder="Email" class="form-control" type="text" />
       <label for="email">Email</label>
 
+      <div class="invalid-feedback d-block" *ngIf="form.controls.email.invalid && (form.controls.email.dirty || form.controls.email.touched)">
+        <div *ngIf="form.controls.email.errors">
+          Email is invalid
+        </div>
+      </div>
+
     </div>
     <div class="d-grid gap-3">
 
@@ -13,6 +19,12 @@
         <input formControlName="firstName" class="form-control" type="text" id="firstName" placeholder="First Name" />
         <label class="form-label" for="firstName">First Name</label>
 
+        <div class="invalid-feedback d-block" *ngIf="form.controls.firstName.invalid && (form.controls.firstName.dirty || form.controls.firstName.touched)">
+
+          <div *ngIf="form.controls.firstName.errors">
+            First name is invalid
+          </div>
+        </div>
       </div>
 
       <div class="form-floating">
@@ -20,6 +32,12 @@
         <input formControlName="lastName" placeholder="Last Name" class="form-control" id="lastName" type="text" />
         <label class="form-label" for="lastName">Last Name</label>
 
+        <div class="invalid-feedback d-block" *ngIf="form.controls.lastName.invalid && (form.controls.lastName.dirty || form.controls.lastName.touched)">
+          <div *ngIf="form.controls.lastName.errors">
+            Last name is invalid
+          </div>
+
+        </div>
       </div>
 
 
