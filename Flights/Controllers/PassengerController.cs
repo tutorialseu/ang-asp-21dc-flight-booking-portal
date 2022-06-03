@@ -32,7 +32,8 @@ namespace Flights.Controllers
                 dto.Gender
                 ));
 
-            System.Diagnostics.Debug.WriteLine(_entities.Passengers.Count);
+            _entities.SaveChanges();
+
             return CreatedAtAction(nameof(Find), new { email = dto.Email });
         }
 
