@@ -1,8 +1,9 @@
 <h5 class="text-md-center m-5">My Bookings</h5>
-<div class="card bg-light text-dark  mt-5">
+
+<div *ngFor="let booking of bookings" class="card bg-light text-dark  mt-5">
   <div class="card-body text-center" style="padding: 20px; background-color:#e5ecf26e">
-    <h6 class="card-title ">Lufthansa</h6>
-    <div class="card-title" style="color: #ff3939">3 booked seat(s)</div>
+    <h6 class="card-title ">{{booking.airline}}</h6>
+    <div class="card-title" style="color: #ff3939">{{booking.numberOfBookedSeats}} booked seat(s)</div>
     <div class="d-grid text-center g-2">
       <div class="row">
         <div class="col">
@@ -12,18 +13,18 @@
 
           <div class="col">
             <i class="fa-solid fa-location-dot">
-              Amsterdam
+              {{booking.departure?.place}}
             </i>
           </div>
 
           <div class="col m-2">
             <i class="fa-regular"></i>
-            Jun 1, 2022
+            {{booking.departure?.time | date}}
           </div>
 
           <div class="col">
             <i class="fa-regular fa-clock">
-              8:08 PM
+              {{booking.departure?.time | date:'shortTime'}}
             </i>
           </div>
         </div>
@@ -35,7 +36,9 @@
             <i class="fas fa-plane" style="margin-top: 48px;"></i>
           </div>
 
-          <i class="fa fa-usd" aria-hidden="true">4392</i>
+          <i class="fa fa-usd" aria-hidden="true">
+            {{booking.price}}
+          </i>
           <br>
 
         </div>
@@ -45,16 +48,18 @@
           </div>
           <div class="col">
             <i class="fa-solid fa-location-dot">
-              Belgrade
+              {{booking.arrival?.place}}
+
             </i>
           </div>
           <div class="col m-2 text-primary">
             <i class="fa-regular "></i>
-            Jun 1, 2022
+            {{booking.arrival?.time | date}}
+
           </div>
           <div class="col">
             <i class="fa-regular fa-clock">
-              8:08 PM
+              {{booking.arrival?.time | date:'shortTime'}}
             </i>
           </div>
         </div>
@@ -62,6 +67,6 @@
     </div>
   </div>
   <div class="card-body d-flex justify-content-center">
-    <a class="btn btn-warning btn-secondary center"><i class="fas fa-remove"></i> Cancel</a>
+    <a (click)="cancel(booking)" class="btn btn-warning btn-secondary center"><i class="fas fa-remove"></i> Cancel</a>
   </div>
 </div>
