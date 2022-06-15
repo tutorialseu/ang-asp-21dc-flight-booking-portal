@@ -1,67 +1,71 @@
 <h5 class="text-md-center m-5">Search for Flights</h5>
 
-<div class="m-5 d-grid gap-3">
+<form [formGroup]="searchForm" (ngSubmit)="search()">
+  <div class="m-5 d-grid gap-3">
 
-  <div class="row">
+    <div class="row">
 
-    <div class="col">
-      <div class="form-floating">
-        <input placeholder="From" class="form-control" />
-        <label class="text-primary form-label">From</label>
+      <div class="col">
+        <div class="form-floating">
+          <input formControlName="from" placeholder="From" class="form-control" />
+          <label class="text-primary form-label">From</label>
+        </div>
       </div>
+
+      <div class="col">
+        <div class="form-floating">
+          <input formControlName="destination" placeholder="Destination" class="form-control" />
+          <label class="text-primary form-label">Destination</label>
+        </div>
+      </div>
+
     </div>
 
-    <div class="col">
-      <div class="form-floating">
-        <input placeholder="Destination" class="form-control" />
-        <label class="text-primary form-label">Destination</label>
+    <div class="row">
+
+      <div class="col">
+        <div class="form-floating">
+          <input formControlName="fromDate" type="date" placeholder="From Date" class="form-control" />
+          <label class="text-primary form-label">From Date</label>
+        </div>
       </div>
+
+      <div class="col">
+        <div class="form-floating">
+          <input formControlName="toDate" type="date" placeholder="To Date" class="form-control" />
+          <label class="text-primary form-label">To Date</label>
+        </div>
+      </div>
+
     </div>
+
+    <div class="row">
+
+      <div class="col text-end">
+        <label class="form-label text-primary mt-2">
+          Number of Passengers
+        </label>
+      </div>
+
+      <div class="col">
+        <div class="input-group">
+          <div class="input-group-text">For</div>
+          <input formControlName="numberOfPassengers" class="form-control" type="number" placeholder="1" />
+          <div class="input-group-text">Passengers</div>
+
+          <button type="submit" class="btn-primary btn">
+            <i class="fas fa-search"></i>
+          </button>
+        </div>
+      </div>
+
+    </div>
+
 
   </div>
-
-  <div class="row">
-
-    <div class="col">
-      <div class="form-floating">
-        <input type="date" placeholder="From Date" class="form-control" />
-        <label class="text-primary form-label">From Date</label>
-      </div>
-    </div>
-
-    <div class="col">
-      <div class="form-floating">
-        <input type="date" placeholder="To Date" class="form-control" />
-        <label class="text-primary form-label">To Date</label>
-      </div>
-    </div>
-
-  </div>
-
-  <div class="row">
-
-    <div class="col text-end">
-      <label class="form-label text-primary mt-2">
-      Number of Passengers
-      </label>
-    </div>
-
-    <div class="col">
-      <div class="input-group">
-        <div class="input-group-text">For</div>
-        <input class="form-control" type="number" placeholder="1"/>
-        <div class="input-group-text">Passengers</div>
-
-        <button (click)="search()" type="submit" class="btn-primary btn">
-          <i class="fas fa-search"></i>
-        </button>
-      </div>
-    </div>
-
-  </div>
+</form>
 
 
-</div>
 
 <div *ngFor="let flight of searchResult">
   <div class="card text-dark mt-5 text-center">
